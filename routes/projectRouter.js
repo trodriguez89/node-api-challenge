@@ -1,7 +1,6 @@
 const express = require("express");
 const projects = require("../data/helpers/projectModel");
 const router = express.Router();
-
 const { validateProjectId, validateProjectInfo } = require("../middleware/middleware");
 
 router.use(express.json());

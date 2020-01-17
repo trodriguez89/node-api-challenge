@@ -55,7 +55,19 @@ router.delete("/:id", validateActionId, (req, res) => {
     })
 });
 
-
+//PUT requests
+router.put("/:id", validateActionId, validateActionInfo, (req, res) => {
+    const id = req.params.id;
+    const body = req.body;
+    actions.update(id, body)
+    .then(data => {
+        res.status(201).json(data)
+    })
+    .catch(error => {
+        console.log(error)
+        res.status(500).json({errorMessage: "error modifying action."})
+    })
+});
 
 
 module.exports = router;
